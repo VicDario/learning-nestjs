@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ProductDto } from 'src/interfaces/product.interface';
 
-import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe'
+import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe';
 
 import { ProductsService } from 'src/services/products/products.service';
 
@@ -15,12 +15,12 @@ export class ProductsController {
   }
 
   @Get(':id')
-  getProduct (@Param('id', ParseIntPipe) id: number) {
-    return this.productsService.findOne(id)
+  getProduct(@Param('id', ParseIntPipe) id: number) {
+    return this.productsService.findOne(id);
   }
 
   @Post()
   createProduct(@Body() payload: ProductDto) {
-    return this.productsService.create(payload)
+    return this.productsService.create(payload);
   }
 }

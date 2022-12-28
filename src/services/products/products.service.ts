@@ -2,7 +2,6 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { Product, ProductDto } from 'src/interfaces/product.interface';
 
-
 @Injectable()
 export class ProductsService {
   private products: Product[] = [
@@ -21,7 +20,7 @@ export class ProductsService {
 
   findOne(id: number) {
     const product = this.products.find((item) => item.id === id);
-    if (!product)  throw new NotFoundException('Product not found');
+    if (!product) throw new NotFoundException('Product not found');
     return product;
   }
 
@@ -31,7 +30,6 @@ export class ProductsService {
       ...payload,
       id: this.counter,
     });
-    return this.findOne(this.counter)
+    return this.findOne(this.counter);
   }
-
 }
