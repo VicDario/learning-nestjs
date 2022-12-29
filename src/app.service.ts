@@ -7,7 +7,7 @@ export class AppService {
     @Inject('TASKS') private tasks: any[],
   ) {}
   getHello(): string {
-    console.log(this.tasks);
+    console.log(this.tasks[0]);
     return 'Hello World! ' + this.apiKey;
   }
 }
