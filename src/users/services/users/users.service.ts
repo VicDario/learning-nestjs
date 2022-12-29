@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 import { ProductsService } from 'src/products/services/products/products.service';
 
@@ -17,13 +18,17 @@ export class UsersService {
       role: 'admin',
     },
   ];
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private config: ConfigService
+  ) {}
 
   findAll() {
     return this.users;
   }
 
   findOne(id: number) {
+    console.log(this.config.get('API_KEY'));
     const user = this.users.find((item) => item.id === id);
     if (!user) throw new NotFoundException('Product not found');
     return user;
