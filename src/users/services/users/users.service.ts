@@ -14,9 +14,9 @@ export class UsersService {
       id: 1,
       email: 'email@email.com',
       password: '12345',
-      role: 'admin'
-    }
-  ]
+      role: 'admin',
+    },
+  ];
   constructor(private productsService: ProductsService) {}
 
   findAll() {

@@ -8,6 +8,6 @@ import { CustomersController } from './controllers/customers/customers.controlle
 @Module({
   imports: [ProductsModule],
   controllers: [UsersController, OrdersController, CustomersController],
-  providers: [UsersService]
+  providers: [UsersService],
 })
 export class UsersModule {}

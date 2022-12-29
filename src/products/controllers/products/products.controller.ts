@@ -6,7 +6,6 @@ import { ProductDto } from 'src/products/dtos/product.dto';
 
 import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe';
 
-
 @Controller('products')
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
