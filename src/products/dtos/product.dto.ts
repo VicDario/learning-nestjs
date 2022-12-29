@@ -1,4 +1,5 @@
 import { IsString, IsNumber, IsNotEmpty, IsPositive } from 'class-validator';
+import { PartialType } from '@nestjs/swagger';
 
 export class ProductDto {
   @IsString()
@@ -14,3 +15,5 @@ export class ProductDto {
   @IsNotEmpty()
   readonly price: number;
 }
+
+export class UpdateProductDto extends PartialType(ProductDto) {}
