@@ -20,7 +20,7 @@ export class UsersService {
   ];
   constructor(
     private productsService: ProductsService,
-    private config: ConfigService
+    private config: ConfigService,
   ) {}
 
   findAll() {
