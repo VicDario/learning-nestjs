@@ -11,10 +11,14 @@ import { UsersModule } from './users/users.module';
 import { firstValueFrom } from 'rxjs';
 import { DatabaseModule } from './database/database.module';
 
+import { environments } from './environments';
+
+console.log(process.env.NODE_ENV);
+
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: environments[process.env.NODE_ENV] || '.env',
       isGlobal: true,
     }),
     HttpModule.registerAsync({
