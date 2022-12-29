@@ -23,6 +23,6 @@ async function bootstrap() {
 
   app.enableCors(); // Cors enable to every domain - unsafe :C
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

@@ -6,4 +6,5 @@ export default registerAs('config', () => ({
     port: process.env.DATABASE_PORT,
   },
   apiKey: process.env.API_KEY,
+  port: process.env.PORT,
 }));

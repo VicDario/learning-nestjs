@@ -26,6 +26,7 @@ import config from './config';
         API_KEY: Joi.string().required(),
         DATABASE_NAME: Joi.string().required(),
         DATABASE_PORT: Joi.number().required(),
+        PORT: Joi.number(),
       }),
     }),
     HttpModule.registerAsync({
