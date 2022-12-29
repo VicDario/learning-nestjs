@@ -3,20 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { BrandsController } from './controllers/brands/brands.controller';
-import { UsersController } from './controllers/users/users.controller';
-import { CostumersController } from './controllers/costumers/costumers.controller';
-import { OrdersController } from './controllers/orders/orders.controller';
 import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
+
 
 @Module({
   imports: [ProductsModule, UsersModule],
   controllers: [
     AppController,
-    BrandsController,
-    UsersController,
-    CostumersController,
-    OrdersController,
+    BrandsController
   ],
   providers: [AppService],
 })
