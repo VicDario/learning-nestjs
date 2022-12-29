@@ -1,9 +1,11 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ProductDto } from 'src/interfaces/product.interface';
+
+import { ProductsService } from 'src/products/services/products/products.service';
+
+import { ProductDto } from 'src/products/dtos/product.dto';
 
 import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe';
 
-import { ProductsService } from 'src/services/products/products.service';
 
 @Controller('products')
 export class ProductsController {
