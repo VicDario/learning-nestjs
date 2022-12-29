@@ -13,7 +13,6 @@ export class ParseIntPipe implements PipeTransform {
     if (isNaN(val)) {
       throw new BadRequestException(`${value} is not a number`);
     }
-    console.log(val, value);
-    return value;
+    return val;
   }
 }
