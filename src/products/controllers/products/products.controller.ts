@@ -13,6 +13,7 @@ import { ProductsService } from 'src/products/services/products/products.service
 import { ProductDto, UpdateProductDto } from 'src/products/dtos/product.dto';
 
 // import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe';
+import { MongoIdPipe } from 'src/common/pipes/mongo-id/mongo-id.pipe';
 
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
@@ -28,7 +29,7 @@ export class ProductsController {
   }
 
   @Get(':id')
-  getProduct(@Param('id') id: string) {
+  getProduct(@Param('id', MongoIdPipe) id: string) {
     return this.productsService.findOne(id);
   }
 
@@ -38,7 +39,10 @@ export class ProductsController {
   }
 
   @Put(':id')
-  updateProduct(@Param('id') id: string, @Body() changes: UpdateProductDto) {
+  updateProduct(
+    @Param('id', MongoIdPipe) id: string,
+    @Body() changes: UpdateProductDto,
+  ) {
     return this.productsService.update(id, changes);
   }
 
