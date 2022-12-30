@@ -1,10 +1,18 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 
 import { ProductsService } from 'src/products/services/products/products.service';
 
-import { ProductDto } from 'src/products/dtos/product.dto';
+import { ProductDto, UpdateProductDto } from 'src/products/dtos/product.dto';
 
-import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe';
+// import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe';
 
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
@@ -20,12 +28,22 @@ export class ProductsController {
   }
 
   @Get(':id')
-  getProduct(@Param('id', ParseIntPipe) id: number) {
+  getProduct(@Param('id') id: string) {
     return this.productsService.findOne(id);
   }
 
   @Post()
   createProduct(@Body() payload: ProductDto) {
     return this.productsService.create(payload);
+  }
+
+  @Put(':id')
+  updateProduct(@Param('id') id: string, @Body() changes: UpdateProductDto) {
+    return this.productsService.update(id, changes);
+  }
+
+  @Delete()
+  deleteProduct(@Param('id') id: string) {
+    return this.productsService.remove(id);
   }
 }
