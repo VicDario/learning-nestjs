@@ -17,15 +17,19 @@ export class ProductsService {
 
   async findAll(params?: FilterProductsDto) {
     if (params) {
-      const filters: FilterQuery<Product> = {}
+      const filters: FilterQuery<Product> = {};
       const { limit, offset, minPrice, maxPrice } = params;
       if (minPrice && maxPrice) {
         filters.price = {
           $gte: minPrice,
-          $lte: maxPrice
-        }
+          $lte: maxPrice,
+        };
       }
-      return await this.productModel.find(filters).skip(offset).limit(limit).exec();
+      return await this.productModel
+        .find(filters)
+        .skip(offset)
+        .limit(limit)
+        .exec();
     }
     return await this.productModel.find().exec();
   }

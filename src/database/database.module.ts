@@ -4,7 +4,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { ConfigType } from '@nestjs/config';
 import config from 'src/config';
-import { mongo } from 'mongoose';
 
 const API_KEY = 'HelloIAmASecret';
 
