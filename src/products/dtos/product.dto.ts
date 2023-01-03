@@ -3,7 +3,8 @@ import {
   IsNumber,
   IsNotEmpty,
   IsOptional,
-  Min
+  Min,
+  ValidateIf,
 } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 
@@ -50,4 +51,14 @@ export class FilterProductsDto {
   @IsNumber()
   @Min(0)
   offset: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  minPrice: number;
+
+  @ValidateIf((params) => params.minPrice)
+  @IsNumber()
+  @IsPositive()
+  maxPrice: number;
 }
