@@ -14,7 +14,11 @@ export class OrdersService {
   }
 
   async findOne(id: string) {
-    return this.orderModel.findById(id);
+    return await this.orderModel
+      .findById(id)
+      .populate('customer')
+      .populate('products')
+      .exec();
   }
 
   create(data: CreateOrderDto) {

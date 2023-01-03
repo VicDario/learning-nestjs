@@ -13,7 +13,7 @@ export class Customer extends Document {
   phone: string;
 
   @Prop({ type: [{ name: { type: String }, color: { type: String } }] })
-  skils: Types.Array<Record<string, any>>;
+  skills: Types.Array<Record<string, any>>;
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

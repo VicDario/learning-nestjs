@@ -12,6 +12,7 @@ export class CreateOrderDto {
 
   @IsArray()
   @IsNotEmpty()
+  @IsMongoId({ each: true })
   readonly products: string[];
 }
 
