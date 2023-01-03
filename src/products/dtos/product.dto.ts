@@ -2,6 +2,7 @@ import {
   IsString,
   IsNumber,
   IsNotEmpty,
+  IsPositive,
   IsOptional,
   Min,
   ValidateIf,
@@ -24,7 +25,6 @@ export class ProductDto {
   @IsNotEmpty()
   @ApiProperty()
   readonly price: number;
-
 
   @IsString()
   @IsNotEmpty()
