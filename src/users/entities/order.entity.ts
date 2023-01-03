@@ -13,7 +13,7 @@ export class Order extends Document {
   customer: Customer | Types.ObjectId;
 
   @Prop({ type: [{ type: Types.ObjectId, ref: Product.name }] })
-  products: Types.Array<Product> | string;
+  products: Types.Array<Product>;
 }
 
 export const OrderSchema = SchemaFactory.createForClass(Order);

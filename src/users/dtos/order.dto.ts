@@ -17,3 +17,10 @@ export class CreateOrderDto {
 }
 
 export class UpdateOrderDto extends PartialType(CreateOrderDto) {}
+
+export class addProductsToOrderDto {
+  @IsArray()
+  @IsNotEmpty()
+  @IsMongoId({ each: true })
+  readonly productsId: string[];
+}
