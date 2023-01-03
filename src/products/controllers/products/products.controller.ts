@@ -6,11 +6,16 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 
 import { ProductsService } from 'src/products/services/products/products.service';
 
-import { ProductDto, UpdateProductDto } from 'src/products/dtos/product.dto';
+import {
+  ProductDto,
+  UpdateProductDto,
+  FilterProductsDto,
+} from 'src/products/dtos/product.dto';
 
 // import { ParseIntPipe } from 'src/pipes/parse-int/parse-int.pipe';
 import { MongoIdPipe } from 'src/common/pipes/mongo-id/mongo-id.pipe';
@@ -24,8 +29,8 @@ export class ProductsController {
 
   @Get()
   @ApiOperation({ summary: 'List of products' })
-  getProducts() {
-    return this.productsService.findAll();
+  getProducts(@Query() query: FilterProductsDto) {
+    return this.productsService.findAll(query);
   }
 
   @Get(':id')
